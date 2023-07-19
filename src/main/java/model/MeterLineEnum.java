@@ -1,13 +1,13 @@
 package model;
 
-public enum MeterLinesEnum {
+public enum MeterLineEnum {
 
     CRONOS("Cronos"),
     ARES("Ares");
 
     private final String name;
 
-    MeterLinesEnum(String name) {
+    MeterLineEnum(String name) {
         this.name = name;
     }
 

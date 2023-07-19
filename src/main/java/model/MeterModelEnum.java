@@ -1,6 +1,6 @@
 package model;
 
-public enum MeterModelsEnum {
+public enum MeterModelEnum {
 
     CRONOS_6001A("Cronos 6001-A"),
     CRONOS_6003("Cronos 6003"),
@@ -22,7 +22,7 @@ public enum MeterModelsEnum {
 
     private final String name;
 
-    MeterModelsEnum(String name) {
+    MeterModelEnum(String name) {
         this.name = name;
 
     }
