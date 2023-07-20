@@ -24,7 +24,6 @@ public enum MeterModelEnum {
 
     MeterModelEnum(String name) {
         this.name = name;
-
     }
 
     @Override
