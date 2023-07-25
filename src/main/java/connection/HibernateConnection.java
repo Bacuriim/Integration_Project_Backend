@@ -3,7 +3,6 @@ package connection;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-// final classes are made to not be extended or inherited (Singleton)
 public final class HibernateConnection {
 
     public static SessionFactory sessionFactory;
@@ -12,7 +11,6 @@ public final class HibernateConnection {
 
         if(sessionFactory == null){
             try {
-                // Create a SessionFactory from hibernate.cfg.xml
                 return new Configuration().configure().buildSessionFactory();
             }
             catch (Throwable ex) {

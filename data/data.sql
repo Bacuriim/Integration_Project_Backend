@@ -1,36 +1,36 @@
-DROP TABLE IF EXISTS model_table;
-DROP TABLE IF EXISTS category_table;
-DROP TABLE IF EXISTS line_table;
+DROP TABLE IF EXISTS metermodel;
+DROP TABLE IF EXISTS metercategory;
+DROP TABLE IF EXISTS meterline;
 
-CREATE TABLE lineup_table(
-     name text NOT NULL,
-     PRIMARY KEY(name)
+CREATE TABLE meterline(
+     nameid text NOT NULL,
+     PRIMARY KEY(nameid)
 );
 
-CREATE TABLE category_table(
-    name text NOT NULL,
-    lineup_id text,
-    PRIMARY KEY(name),
-    FOREIGN KEY(lineup_id)
-        REFERENCES lineup_table (name)
+CREATE TABLE metercategory(
+    nameid text NOT NULL,
+    line_id text,
+    PRIMARY KEY(nameid),
+    FOREIGN KEY(line_id)
+        REFERENCES meterline (nameid)
         ON DELETE CASCADE
 );
 
-CREATE TABLE model_table(
-    name text NOT NULL,
+CREATE TABLE metermodel(
+    nameid text NOT NULL,
     category_id text,
-    PRIMARY KEY(name),
+    PRIMARY KEY(nameid),
     FOREIGN KEY(category_id)
-        REFERENCES category_table (name)
+        REFERENCES metercategory (nameid)
         ON DELETE CASCADE
 );
 
-INSERT INTO lineup_table (name)
+INSERT INTO meterline (nameid)
 VALUES
     ('Ares'),
     ('Cronos');
 
-INSERT INTO category_table (lineup_id, name)
+INSERT INTO metercategory (line_id, nameid)
 VALUES
     ('Cronos', 'Cronos Old'),
     ('Cronos', 'Cronos L'),
@@ -38,7 +38,7 @@ VALUES
     ('Ares',   'Ares TB'),
     ('Ares',   'Ares THS');
 
-INSERT INTO model_table(category_id, name)
+INSERT INTO metermodel (category_id, nameid)
 VALUES
     ('Cronos Old', 'Cronos 6001-A'),
     ('Cronos Old', 'Cronos 6003'),

@@ -3,16 +3,16 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "line_table")
-public class LineEntity {
+@Table(name = "meterline")
+public class MeterLineEntity {
 
     @Id
-    @Column(name = "line_name")
+    @Column(name = "nameid")
     private String lineName;
 
-    public LineEntity(){}
+    public MeterLineEntity(){}
 
-    LineEntity(String lineName) {
+    MeterLineEntity(String lineName) {
         this.lineName = lineName;
     }
 
