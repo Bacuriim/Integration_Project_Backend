@@ -10,7 +10,7 @@ public class MeterLineEntity {
     @Column(name = "nameid")
     private String lineName;
 
-    public MeterLineEntity() {}
+    public MeterLineEntity(){}
 
     MeterLineEntity(String lineName) {
         this.lineName = lineName;
