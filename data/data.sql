@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS metercategory;
 DROP TABLE IF EXISTS meterline;
 
 CREATE TABLE meterline(
-     nameid text NOT NULL,
-     PRIMARY KEY(nameid)
+    nameid text NOT NULL,
+    PRIMARY KEY(nameid)
 );
 
 CREATE TABLE metercategory(
