@@ -1,9 +1,9 @@
-package connection;
+package configuration;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public final class HibernateConnection {
+public final class HibernateConfiguration {
 
     public static SessionFactory sessionFactory;
 

@@ -1,4 +1,4 @@
-package connection.DTO;
+package DAO;
 
 import model.MeterLineEntity;
 import org.hibernate.Session;
