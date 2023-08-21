@@ -1,6 +1,6 @@
 package service;
 
-import connection.DTO.MeterModelDAO;
+import DAO.MeterModelDAO;
 
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package api;
 
-import connection.DTO.MeterModelDAO;
+import DAO.MeterModelDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
