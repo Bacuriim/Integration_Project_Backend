@@ -7,7 +7,11 @@ import javax.persistence.*;
 public class MeterLineEntity {
 
     @Id
-    @Column(name = "nameid")
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Short id;
+
+    @Column(name = "name")
     private String lineName;
 
     public MeterLineEntity(){}
@@ -19,5 +23,10 @@ public class MeterLineEntity {
     @Override
     public String toString() {
         return lineName;
+    }
+
+    public Short setId(Short id) {
+        this.id = id;
+        return id;
     }
 }

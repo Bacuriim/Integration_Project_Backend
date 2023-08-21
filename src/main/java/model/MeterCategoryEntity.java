@@ -7,7 +7,11 @@ import javax.persistence.*;
 public class MeterCategoryEntity {
 
     @Id
-    @Column(name = "nameid")
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Short id;
+
+    @Column(name = "name")
     private String categoryName;
 
     @ManyToOne
@@ -28,5 +32,10 @@ public class MeterCategoryEntity {
 
     public MeterLineEntity getLine() {
         return line;
+    }
+
+    public Short setId(Short id) {
+        this.id = id;
+        return id;
     }
 }

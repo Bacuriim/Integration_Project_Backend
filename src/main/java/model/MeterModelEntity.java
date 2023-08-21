@@ -7,7 +7,11 @@ import javax.persistence.*;
 public class MeterModelEntity {
 
     @Id
-    @Column(name = "nameid")
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Short id;
+
+    @Column(name = "name")
     private String modelName;
 
     @ManyToOne
@@ -24,5 +28,10 @@ public class MeterModelEntity {
     @Override
     public String toString(){
         return modelName;
+    }
+
+    public Short setId(Short id) {
+        this.id = id;
+        return id;
     }
 }
