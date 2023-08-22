@@ -1,4 +1,4 @@
-package com.br.eletra.model;
+package com.br.eletra.models;
 
 import javax.persistence.*;
 
@@ -34,8 +34,24 @@ public class MeterCategoryEntity {
         return line;
     }
 
+    public Short getId() {
+        return id;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setLine(MeterLineEntity line) {
+        this.line = line;
+    }
+
     public Short setId(Short id) {
         this.id = id;
         return id;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

@@ -1,13 +1,15 @@
-package com.br.eletra.model;
+package com.br.eletra.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "metermodel")
-public class MeterModelEntity {
+public class MeterModelEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Short id;
 
@@ -33,5 +35,29 @@ public class MeterModelEntity {
     public Short setId(Short id) {
         this.id = id;
         return id;
+    }
+
+    public Short getId() {
+        return id;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public MeterCategoryEntity getCategory() {
+        return category;
+    }
+
+    public Short getId(short id) {
+        return id;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+
+    public void setCategory(MeterCategoryEntity category) {
+        this.category = category;
     }
 }

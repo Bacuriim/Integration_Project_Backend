@@ -1,6 +1,6 @@
 package com.br.eletra.DAO;
 
-import com.br.eletra.model.MeterLineEntity;
+import com.br.eletra.models.MeterLineEntity;
 
 import org.hibernate.Session;
 

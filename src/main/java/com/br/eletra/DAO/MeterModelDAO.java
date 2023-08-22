@@ -1,7 +1,7 @@
 package com.br.eletra.DAO;
 
-import com.br.eletra.model.MeterCategoryEntity;
-import com.br.eletra.model.MeterModelEntity;
+import com.br.eletra.models.MeterCategoryEntity;
+import com.br.eletra.models.MeterModelEntity;
 
 import org.hibernate.Session;
 

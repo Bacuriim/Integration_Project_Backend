@@ -1,7 +1,7 @@
 package com.br.eletra.DAO;
 
-import com.br.eletra.model.MeterCategoryEntity;
-import com.br.eletra.model.MeterLineEntity;
+import com.br.eletra.models.MeterCategoryEntity;
+import com.br.eletra.models.MeterLineEntity;
 import org.hibernate.Session;
 
 import java.util.List;
