@@ -1,12 +1,12 @@
-package api;
+package com.br.eletra.api;
 
-import DAO.MeterCategoryDAO;
+import com.br.eletra.DAO.MeterCategoryDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import service.MeterCategoryService;
+import com.br.eletra.service.MeterCategoryService;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class MeterCategoryAPI {
 				return this.meterCategoryService.deleteCategory(meterCategoryDAO , id);
 		}
 
-		@GetMapping(value = "/{id}")
+		@GetMapping(value = "/{category_id}")
 		@ResponseBody
 		public MeterCategoryDAO getById(Short id) {
 				return this.meterCategoryService.getById(id);

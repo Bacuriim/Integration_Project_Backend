@@ -1,6 +1,6 @@
-package service;
+package com.br.eletra.service;
 
-import DAO.MeterLineDAO;
+import com.br.eletra.DAO.MeterLineDAO;
 
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -10,24 +10,24 @@ import java.util.Map;
 
 @Service
 public class MeterLineService {
-		private static final Map<Short , MeterLineDAO> lineService = new HashMap<>();
+		private static final Map<String , MeterLineDAO> lineService = new HashMap<>();
 
-		public MeterLineDAO updateLine(MeterLineDAO meterLineDAO , Short id) {
+		public MeterLineDAO updateLine(MeterLineDAO meterLineDAO , String id) {
 				lineService.put(id , meterLineDAO);
 				return meterLineDAO;
 		}
 
-		public String deleteLine(MeterLineDAO meterLineDAO , Short id) {
+		public String deleteLine(MeterLineDAO meterLineDAO , String id) {
 				lineService.remove(id);
 				return "Meter Line has been removed!";
 		}
 
-		public MeterLineDAO getById(Short id) {
+		public MeterLineDAO getById(String id) {
 				return lineService.get(id);
 		}
 
 		public List<MeterLineDAO> getAll() {
-				return new ArrayList<>(lineService.values());
+			return new ArrayList<>(lineService.values());
 		}
 
 }

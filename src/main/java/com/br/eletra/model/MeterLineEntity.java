@@ -1,4 +1,4 @@
-package model;
+package com.br.eletra.model;
 
 import javax.persistence.*;
 
@@ -9,7 +9,7 @@ public class MeterLineEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Short id;
+    private String id;
 
     @Column(name = "name")
     private String lineName;
@@ -25,7 +25,7 @@ public class MeterLineEntity {
         return lineName;
     }
 
-    public Short setId(Short id) {
+    public String setId(String id) {
         this.id = id;
         return id;
     }

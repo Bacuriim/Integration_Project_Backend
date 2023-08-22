@@ -1,6 +1,6 @@
-package DAO;
+package com.br.eletra.DAO;
 
-import model.MeterLineEntity;
+import com.br.eletra.model.MeterLineEntity;
 
 import org.hibernate.Session;
 
@@ -14,6 +14,7 @@ public class MeterLineDAO {
 		}
 
 		public List<MeterLineEntity> getAllMeterLines() {
-				return session.createQuery("FROM MeterLineEntity").list();
+			return session.createQuery("FROM MeterLineEntity").list();
 		}
+
 }

@@ -15,8 +15,8 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="model.MeterLineEntity"/>
-        <mapping class="model.MeterCategoryEntity"/>
-        <mapping class="model.MeterModelEntity"/>
+        <mapping class="com.br.eletra.model.MeterLineEntity"/>
+        <mapping class="com.br.eletra.model.MeterCategoryEntity"/>
+        <mapping class="com.br.eletra.model.MeterModelEntity"/>
     </session-factory>
 </hibernate-configuration>

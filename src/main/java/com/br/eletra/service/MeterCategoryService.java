@@ -1,6 +1,6 @@
-package service;
+package com.br.eletra.service;
 
-import DAO.MeterCategoryDAO;
+import com.br.eletra.DAO.MeterCategoryDAO;
 
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

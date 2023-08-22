@@ -1,12 +1,12 @@
-package api;
+package com.br.eletra.api;
 
-import DAO.MeterModelDAO;
+import com.br.eletra.DAO.MeterModelDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import service.MeterModelService;
+import com.br.eletra.service.MeterModelService;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class MeterModelAPI {
 				return this.meterModelService.deleteModel(meterModelDAO , id);
 		}
 
-		@GetMapping(value = "/{id}")
+		@GetMapping(value = "/{model_id}")
 		@ResponseBody
 		public MeterModelDAO getById(Short id) {
 				return this.meterModelService.getById(id);

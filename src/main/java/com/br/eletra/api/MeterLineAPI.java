@@ -1,12 +1,12 @@
-package api;
+package com.br.eletra.api;
 
-import DAO.MeterLineDAO;
+import com.br.eletra.DAO.MeterLineDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import service.MeterLineService;
+import com.br.eletra.service.MeterLineService;
 
 import java.util.List;
 
@@ -19,19 +19,19 @@ public class MeterLineAPI {
 
 		@PutMapping
 		@ResponseBody
-		public MeterLineDAO updateLine(@PathVariable("id") Short id , @RequestBody MeterLineDAO meterLineDAO) {
+		public MeterLineDAO updateLine(@PathVariable("id") String id , @RequestBody MeterLineDAO meterLineDAO) {
 				return  this.meterLineService.updateLine(meterLineDAO , id);
 		}
 
 		@DeleteMapping({"/{id}"})
 		@ResponseBody
-		public String deleteLine(@PathVariable("id") Short id , @RequestBody MeterLineDAO meterLineDAO) {
+		public String deleteLine(@PathVariable("id") String id , @RequestBody MeterLineDAO meterLineDAO) {
 				return this.meterLineService.deleteLine(meterLineDAO , id);
 		}
 
 		@GetMapping(value = "/{id}")
 		@ResponseBody
-		public MeterLineDAO getById(Short id) {
+		public MeterLineDAO getById(String id) {
 				return this.meterLineService.getById(id);
 		}
 
