@@ -1,7 +1,6 @@
 package com.br.eletra.DAO;
 
 import com.br.eletra.models.MeterCategoryEntity;
-import com.br.eletra.models.MeterLineEntity;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class MeterCategoryDAO {
 				this.session = session;
 		}
 
-		public List<MeterCategoryEntity> getCategoriesForLine(MeterLineEntity id) {
+		public List<MeterCategoryEntity> getCategoriesForLine(Short id) {
 				return session.createQuery("FROM MeterCategoryEntity WHERE line_id = :id").setParameter("id", id).list();
 		}
 }

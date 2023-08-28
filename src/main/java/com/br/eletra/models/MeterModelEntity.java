@@ -45,8 +45,9 @@ public class MeterModelEntity implements Serializable {
         return modelName;
     }
 
-    public MeterCategoryEntity getCategory() {
-        return category;
+    public String getCategory() {
+
+        return category.getCategoryName();
     }
 
     public Short getId(short id) {

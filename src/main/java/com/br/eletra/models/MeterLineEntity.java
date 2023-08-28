@@ -1,10 +1,13 @@
 package com.br.eletra.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "meterline")
-public class MeterLineEntity {
+public class MeterLineEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "id")

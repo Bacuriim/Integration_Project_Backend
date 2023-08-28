@@ -1,10 +1,13 @@
 package com.br.eletra.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "metercategory")
-public class MeterCategoryEntity {
+public class MeterCategoryEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "id")
@@ -30,8 +33,9 @@ public class MeterCategoryEntity {
         return categoryName;
     }
 
-    public MeterLineEntity getLine() {
-        return line;
+    public String getLine() {
+
+        return line.getLineName();
     }
 
     public Short getId() {
@@ -46,12 +50,12 @@ public class MeterCategoryEntity {
         this.line = line;
     }
 
-    public Short setId(Short id) {
+    public void setId(Short id) {
         this.id = id;
-        return id;
     }
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+
 }
