@@ -3,15 +3,15 @@ DROP TABLE IF EXISTS metercategory;
 DROP TABLE IF EXISTS meterline;
 
 CREATE TABLE meterline(
-    id smallserial NOT NULL ,
+    id SMALLSERIAL NOT NULL ,
     name text NOT NULL,
     PRIMARY KEY(id)
 );
 
 CREATE TABLE metercategory(
-    id smallserial NOT NULL ,
+    id SMALLSERIAL NOT NULL ,
     name text NOT NULL,
-    line_id smallserial,
+    line_id SMALLSERIAL,
     PRIMARY KEY(id),
     FOREIGN KEY(line_id)
         REFERENCES meterline (id)
@@ -19,9 +19,9 @@ CREATE TABLE metercategory(
 );
 
 CREATE TABLE metermodel(
-   id smallserial NOT NULL ,
+   id SMALLSERIAL NOT NULL ,
    name text NOT NULL,
-   category_id smallserial,
+   category_id SMALLSERIAL,
    PRIMARY KEY(id),
    FOREIGN KEY(category_id)
        REFERENCES metercategory (id)

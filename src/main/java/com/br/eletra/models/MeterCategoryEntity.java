@@ -7,8 +7,6 @@ import java.io.Serializable;
 @Table(name = "metercategory")
 public class MeterCategoryEntity implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,16 +20,6 @@ public class MeterCategoryEntity implements Serializable {
     private MeterLineEntity line;
 
     public MeterCategoryEntity() {}
-
-    MeterCategoryEntity(MeterLineEntity line , String name){
-        this.line = line;
-        this.categoryName = name;
-    }
-
-    @Override
-    public String toString(){
-        return categoryName;
-    }
 
     public String getLine() {
 
@@ -58,4 +46,12 @@ public class MeterCategoryEntity implements Serializable {
         this.categoryName = categoryName;
     }
 
+    @Override
+    public String toString() {
+        return "MeterCategoryEntity{" +
+                "id=" + id +
+                ", categoryName='" + categoryName + '\'' +
+                ", line=" + line +
+                '}';
+    }
 }
