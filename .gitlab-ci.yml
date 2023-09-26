@@ -36,10 +36,10 @@ package:
     paths: 
       - target\Integration_Project_Backend-1.0-SNAPSHOT.jar
 
-post:
+.run:
     tags:
       - Shell-Maven
-    stage: post
+    stage: run
     script:
       - java -jar target\Integration_Project_Backend-1.0-SNAPSHOT.jar
       - echo "Executando o serviço!"
