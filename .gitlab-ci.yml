@@ -5,18 +5,9 @@ variables:
   JAVA_HOME: C:\Program Files (x86)\Java\jdk1.8.0_51
 
 stages:
-  - check
   - clean
   - package
-  - deploy
-
-check:
-  tags:
-    - Shell-Maven
-  stage: check
-  script:
-    - java -version
-    - mvn -version
+  - run
 
 clean:
   tags:
@@ -35,3 +26,14 @@ package:
     name: jarpath
     paths:  
       - target\Integration_Project_Backend-1.0-SNAPSHOT.jar
+
+run:
+    tags:
+      - Shell-Maven
+    stage: run
+    script:
+      - java -jar target\Integration_Project_Backend-1.0-SNAPSHOT.jar
+      - echo "Executando o serviço!"
+    only: 
+      - master
+
