@@ -19,7 +19,14 @@ public class MeterCategoryEntity implements Serializable {
     @JoinColumn(name = "line_id")
     private MeterLineEntity line;
 
-    public MeterCategoryEntity() {}
+    public MeterCategoryEntity(String name , Short id) {
+        setCategoryName(name);
+        setId(id);
+    }
+
+    public MeterCategoryEntity() {
+        
+    }
 
     public String getLine() {
 
