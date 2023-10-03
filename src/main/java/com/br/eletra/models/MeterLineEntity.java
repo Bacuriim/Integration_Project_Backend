@@ -15,13 +15,13 @@ public class MeterLineEntity implements Serializable {
     @Column(name = "name")
     private String lineName;
 
-    public MeterLineEntity(String name , Short id){
-        setLineName(name);
-        setId(id);
+    public MeterLineEntity(){
+
     }
 
-    public MeterLineEntity() {
-
+    public MeterLineEntity(String name , Short id) {
+        setLineName(name);
+        setId(id);
     }
 
     public Short getId() {

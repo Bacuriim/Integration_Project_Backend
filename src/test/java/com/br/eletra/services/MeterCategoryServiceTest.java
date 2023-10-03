@@ -1,18 +1,14 @@
-package com.br.eletra;
+package com.br.eletra.services;
 
 import com.br.eletra.models.MeterCategoryEntity;
 import com.br.eletra.models.MeterLineEntity;
 import com.br.eletra.repository.CategoryRepo;
-import com.br.eletra.repository.LineRepo;
-import com.br.eletra.services.MeterCategoryService;
-import com.br.eletra.services.MeterLineService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,18 +19,12 @@ import static org.mockito.Mockito.*;
 public class MeterCategoryServiceTest {
 
 		@InjectMocks
-		private MeterCategoryService categoryService;
-
-		@Mock
-		private MeterLineService lineService;
+		MeterCategoryService categoryService;
 
 		@Mock
 		private CategoryRepo categoryRepo;
 
-		@Mock
-		private LineRepo lineRepo;
-
-		MeterLineEntity line = new MeterLineEntity("Ares" , (short) 0);
+		MeterLineEntity line = new MeterLineEntity("Ares" , (short) 1);
 		MeterCategoryEntity category = new MeterCategoryEntity("Ares TB" , (short) 1);
 
 		@Test
