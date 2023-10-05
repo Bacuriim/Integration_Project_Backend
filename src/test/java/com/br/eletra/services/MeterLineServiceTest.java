@@ -3,6 +3,7 @@ package com.br.eletra.services;
 
 import com.br.eletra.models.MeterLineEntity;
 import com.br.eletra.repository.LineRepo;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,7 +22,12 @@ public class MeterLineServiceTest {
 		@Mock
 		private LineRepo lineRepo;
 
-		private MeterLineEntity line = new MeterLineEntity("Ares" , (short) 1);
+		public MeterLineEntity line;
+
+		@BeforeEach
+		public void setUp() {
+			line = new MeterLineEntity("Cronos" , (short) 0);
+		}
 
 		@Test
 		public void searchMeterLineByLineName() {

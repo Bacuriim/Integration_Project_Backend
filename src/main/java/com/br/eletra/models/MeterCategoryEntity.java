@@ -29,7 +29,6 @@ public class MeterCategoryEntity implements Serializable {
     }
 
     public String getLine() {
-
         return line.getLineName();
     }
 

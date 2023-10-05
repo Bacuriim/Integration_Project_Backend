@@ -3,6 +3,7 @@ package com.br.eletra.services;
 import com.br.eletra.models.MeterCategoryEntity;
 import com.br.eletra.models.MeterLineEntity;
 import com.br.eletra.repository.CategoryRepo;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,17 +25,26 @@ public class MeterCategoryServiceTest {
 		@Mock
 		private CategoryRepo categoryRepo;
 
-		MeterLineEntity line = new MeterLineEntity("Ares" , (short) 1);
-		MeterCategoryEntity category = new MeterCategoryEntity("Ares TB" , (short) 1);
+		MeterLineEntity line2;
+
+		MeterCategoryEntity category;
+
+		@BeforeEach
+		public void setUp() {
+			line2 = new MeterLineEntity("Cronos" , (short) 1);
+
+			category = new MeterCategoryEntity("Ares TB" , (short) 1);
+
+		}
 
 		@Test
 		public void searchCategoriesByMeterLineName() {
-				when(categoryRepo.findByLineId(line.getId())).thenReturn(Collections.singletonList(category));
+				when(categoryRepo.findByLineId(line2.getId())).thenReturn(Collections.singletonList(category));
 
-				List<MeterCategoryEntity> result = categoryService.getCategoriesByLineName(line.getLineName());
+				List<MeterCategoryEntity> result = categoryService.getCategoriesByLineName(line2.getLineName());
 
 				assertEquals(Collections.singletonList(category), result);
-				verify(categoryRepo).findByLineId(line.getId());
+				verify(categoryRepo).findByLineId(line2.getId());
 				verifyNoMoreInteractions(categoryRepo);
 		}
 

@@ -15,14 +15,12 @@ public class MeterLineEntity implements Serializable {
     @Column(name = "name")
     private String lineName;
 
-    public MeterLineEntity(){
-
-    }
-
     public MeterLineEntity(String name , Short id) {
         setLineName(name);
         setId(id);
     }
+
+    public MeterLineEntity() {}
 
     public Short getId() {
         return id;
@@ -32,9 +30,8 @@ public class MeterLineEntity implements Serializable {
         return lineName;
     }
 
-    public Short setId(Short id) {
+    public void setId(Short id) {
         this.id = id;
-        return id;
     }
 
     public void setLineName(String lineName) {

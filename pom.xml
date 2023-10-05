@@ -77,6 +77,14 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.8.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.18</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <properties>

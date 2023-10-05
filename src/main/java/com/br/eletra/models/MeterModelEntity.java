@@ -25,6 +25,10 @@ public class MeterModelEntity implements Serializable {
         setId(id);
     }
 
+    public MeterModelEntity() {
+
+    }
+
     public void MeterModelEntity(MeterCategoryEntity category , String modelName){
         this.category = category;
         this.modelName = modelName;
