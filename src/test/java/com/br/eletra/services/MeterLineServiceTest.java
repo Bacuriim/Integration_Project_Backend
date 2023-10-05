@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,26 +18,26 @@ import static org.mockito.Mockito.*;
 public class MeterLineServiceTest {
 
 		@InjectMocks
-		MeterLineService service;
+		private MeterLineService service;
 
 		@Mock
 		private LineRepo lineRepo;
 
-		public MeterLineEntity line;
 
 		@BeforeEach
 		public void setUp() {
-			line = new MeterLineEntity("Cronos" , (short) 0);
+			MockitoAnnotations.initMocks(this);
 		}
 
 		@Test
-		public void searchMeterLineByLineName() {
-				when(lineRepo.findByLineName(line.getLineName())).thenReturn(line);
+		public void searchMeterLineByLineNameTest() {
+			MeterLineEntity mockLine = new MeterLineEntity("Ares" , (short) 1);
+			when(lineRepo.findByLineName(mockLine.getLineName())).thenReturn(mockLine);
 
-				Short result = service.getLineIdByLineName(line.getLineName());
+			Short result = service.getLineIdByLineName(mockLine.getLineName());
 
-				assertEquals(line.getId() , result);
-				verify(lineRepo).findByLineName(line.getLineName());
-				verifyNoMoreInteractions(lineRepo);
+			assertEquals(mockLine.getId() , result);
+			verify(lineRepo).findByLineName(mockLine.getLineName());
+			verifyNoMoreInteractions(lineRepo);
 		}
 }

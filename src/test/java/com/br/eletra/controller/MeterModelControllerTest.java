@@ -36,7 +36,7 @@ public class MeterModelControllerTest {
     }
 
     @Test
-    void testGetModelEntityList() {
+    void getModelEntityListTest() {
         List<MeterModelEntity> mockModelList = new ArrayList<>();
         mockModelList.add(new MeterModelEntity("Model1" , (short) 1));
         mockModelList.add(new MeterModelEntity("Model2", (short) 2));
@@ -51,7 +51,7 @@ public class MeterModelControllerTest {
     }
 
     @Test
-    void testGetModelEntityListByLineName() {
+    void getModelEntityListByLineNameTest() {
         List<MeterModelEntity> mockModelList = new ArrayList<>();
         mockModelList.add(new MeterModelEntity("Model1" , (short) 1));
         mockModelList.add(new MeterModelEntity("Model2" , (short) 2));
@@ -68,7 +68,7 @@ public class MeterModelControllerTest {
     }
 
     @Test
-    void testPostModelEntity() {
+    void postModelEntityTest() {
         MeterModelEntity mockModel = new MeterModelEntity("Model1" , (short) 1);
 
         when(repository.save(mockModel)).thenReturn(mockModel);
@@ -81,7 +81,7 @@ public class MeterModelControllerTest {
     }
 
     @Test
-    void testDeleterCaategoryEntity() {
+    void deleteCategoryEntityTest() {
         MeterModelEntity mockModel = new MeterModelEntity("Model1" , (short) 1);
 
         when(repository.findByModelName("Model1")).thenReturn(mockModel);
@@ -95,7 +95,7 @@ public class MeterModelControllerTest {
     }
 
     @Test
-    void testUpdateModelEntity() {
+    void updateModelEntityTest() {
         MeterModelEntity mockModel = new MeterModelEntity("Model1" , (short) 1);
 
         when(repository.save(mockModel)).thenReturn(mockModel);

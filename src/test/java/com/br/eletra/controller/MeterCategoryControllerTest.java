@@ -36,7 +36,7 @@ public class MeterCategoryControllerTest {
     }
 
     @Test
-    void testGetCategoryEntityList() {
+    void getCategoryEntityListTest() {
         List<MeterCategoryEntity> mockCategoryList = new ArrayList<>();
         mockCategoryList.add(new MeterCategoryEntity("Category1" , (short) 1));
         mockCategoryList.add(new MeterCategoryEntity("Category2", (short) 2));
@@ -51,7 +51,7 @@ public class MeterCategoryControllerTest {
     }
 
     @Test
-    void testGetCategoryEntityListByLineName() {
+    void getCategoryEntityListByLineNameTest() {
         List<MeterCategoryEntity> mockCategoryList = new ArrayList<>();
         mockCategoryList.add(new MeterCategoryEntity("Category1" , (short) 1));
         mockCategoryList.add(new MeterCategoryEntity("Category2" , (short) 2));
@@ -68,7 +68,7 @@ public class MeterCategoryControllerTest {
     }
 
     @Test
-    void testPostCategoryEntity() {
+    void postCategoryEntityTest() {
         MeterCategoryEntity mockCategory = new MeterCategoryEntity("Category1" , (short) 1);
 
         when(repository.save(mockCategory)).thenReturn(mockCategory);
@@ -81,7 +81,7 @@ public class MeterCategoryControllerTest {
     }
 
     @Test
-    void testDeleterCaategoryEntity() {
+    void deleteCategoryEntityTest() {
         MeterCategoryEntity mockCategory = new MeterCategoryEntity("Category1" , (short) 1);
 
         when(repository.findByCategoryName("Category1")).thenReturn(mockCategory);
@@ -95,7 +95,7 @@ public class MeterCategoryControllerTest {
     }
 
     @Test
-    void testUpdateCategoryEntity() {
+    void updateCategoryEntityTest() {
         MeterCategoryEntity mockCategory = new MeterCategoryEntity("Category1" , (short) 1);
 
         when(repository.save(mockCategory)).thenReturn(mockCategory);

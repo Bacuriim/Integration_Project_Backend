@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
@@ -25,38 +26,39 @@ public class MeterCategoryServiceTest {
 		@Mock
 		private CategoryRepo categoryRepo;
 
-		MeterLineEntity line2;
+		@Mock
+		private MeterLineService meterLineService;
 
-		MeterCategoryEntity category;
 
 		@BeforeEach
 		public void setUp() {
-			line2 = new MeterLineEntity("Cronos" , (short) 1);
-
-			category = new MeterCategoryEntity("Ares TB" , (short) 1);
-
+			MockitoAnnotations.initMocks(this);
 		}
 
 		@Test
-		public void searchCategoriesByMeterLineName() {
-				when(categoryRepo.findByLineId(line2.getId())).thenReturn(Collections.singletonList(category));
+		public void searchCategoriesByMeterLineNameTest() {
+			MeterLineEntity mockLine = new MeterLineEntity("Line1" , (short) 1);
+			MeterCategoryEntity mockCategory = new MeterCategoryEntity("AresTB" , (short) 1);
+			when(categoryRepo.findByLineId(mockLine.getId())).thenReturn(Collections.singletonList(mockCategory));
+			when(meterLineService.getLineIdByLineName(mockLine.getLineName())).thenReturn(mockLine.getId());
 
-				List<MeterCategoryEntity> result = categoryService.getCategoriesByLineName(line2.getLineName());
+			List<MeterCategoryEntity> result = categoryService.getCategoriesByLineName(mockLine.getLineName());
 
-				assertEquals(Collections.singletonList(category), result);
-				verify(categoryRepo).findByLineId(line2.getId());
-				verifyNoMoreInteractions(categoryRepo);
+			assertEquals(Collections.singletonList(mockCategory), result);
+			verify(categoryRepo).findByLineId(mockLine.getId());
+			verifyNoMoreInteractions(categoryRepo);
 		}
 
 		@Test
-		public void searchCategoryIdByCategoryName() {
-				when(categoryRepo.findByCategoryName(category.getCategoryName())).thenReturn(category);
+		public void searchCategoryIdByCategoryNameTest() {
+			MeterCategoryEntity mockCategory = new MeterCategoryEntity("AresTB" , (short) 1);
+			when(categoryRepo.findByCategoryName(mockCategory.getCategoryName())).thenReturn(mockCategory);
 
-				Short result = categoryService.getCategoryIdByCategoryName(category.getCategoryName());
+			Short result = categoryService.getCategoryIdByCategoryName(mockCategory.getCategoryName());
 
-				assertEquals(category.getId() , result);
-				verify(categoryRepo).findByCategoryName(category.getCategoryName());
-				verifyNoMoreInteractions(categoryRepo);
+			assertEquals(mockCategory.getId() , result);
+			verify(categoryRepo).findByCategoryName(mockCategory.getCategoryName());
+			verifyNoMoreInteractions(categoryRepo);
 		}
 
 

@@ -31,7 +31,7 @@ public class MeterLineControllerTest {
     }
 
     @Test
-    void testGetLineEntityList() {
+    void getLineEntityListTest() {
         List<MeterLineEntity> mockLineList = new ArrayList<>();
         mockLineList.add(new MeterLineEntity("Line1", (short) 1));
         mockLineList.add(new MeterLineEntity("Line2", (short) 2));
@@ -46,7 +46,7 @@ public class MeterLineControllerTest {
     }
 
     @Test
-    void testGetLineEntity() {
+    void getLineEntityTest() {
         MeterLineEntity mockLine = new MeterLineEntity("Line1", (short) 1);
 
         when(repository.findByLineName("Line1")).thenReturn(mockLine);
@@ -59,7 +59,7 @@ public class MeterLineControllerTest {
     }
 
     @Test
-    void testPostLineEntity() {
+    void postLineEntityTest() {
         MeterLineEntity mockLine = new MeterLineEntity("line1" , (short) 1);
 
         when(repository.save(mockLine)).thenReturn(mockLine);
@@ -72,7 +72,7 @@ public class MeterLineControllerTest {
     }
 
     @Test
-    void testDeleteLineEntity() {
+    void deleteLineEntityTest() {
         MeterLineEntity mockLine = new MeterLineEntity("Line1" , (short) 1);
 
         when(repository.findByLineName("Line1")).thenReturn(mockLine);
@@ -86,7 +86,7 @@ public class MeterLineControllerTest {
     }
 
     @Test
-    void testPutLineEntity() {
+    void putLineEntityTest() {
         MeterLineEntity mockLine = new MeterLineEntity("Line1" , (short) 1);
 
         when(repository.save(mockLine)).thenReturn(mockLine);
