@@ -17,27 +17,25 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class MeterLineServiceTest {
 
-		@InjectMocks
-		private MeterLineService service;
+	@InjectMocks
+	private MeterLineService service;
 
-		@Mock
-		private LineRepo lineRepo;
+	@Mock
+	private LineRepo lineRepo;
 
 
-		@BeforeEach
-		public void setUp() {
-			MockitoAnnotations.initMocks(this);
-		}
+	@BeforeEach
+	public void setUp() {
+		MockitoAnnotations.initMocks(this);
+	}
+	@Test public void searchMeterLineByLineNameTest() {
+		MeterLineEntity mockLine = new MeterLineEntity("Ares" , (short) 1);
+		when(lineRepo.findByLineName(mockLine.getLineName())).thenReturn(mockLine);
 
-		@Test
-		public void searchMeterLineByLineNameTest() {
-			MeterLineEntity mockLine = new MeterLineEntity("Ares" , (short) 1);
-			when(lineRepo.findByLineName(mockLine.getLineName())).thenReturn(mockLine);
+		Short result = service.getLineIdByLineName(mockLine.getLineName());
 
-			Short result = service.getLineIdByLineName(mockLine.getLineName());
-
-			assertEquals(mockLine.getId() , result);
-			verify(lineRepo).findByLineName(mockLine.getLineName());
-			verifyNoMoreInteractions(lineRepo);
-		}
+		assertEquals(mockLine.getId() , result);
+		verify(lineRepo).findByLineName(mockLine.getLineName());
+		verifyNoMoreInteractions(lineRepo);
+	}
 }

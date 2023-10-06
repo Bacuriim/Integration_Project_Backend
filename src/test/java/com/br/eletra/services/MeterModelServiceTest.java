@@ -21,10 +21,13 @@ import static org.mockito.Mockito.*;
 public class MeterModelServiceTest {
 
     @InjectMocks
-    MeterModelService modelService;
+    private MeterModelService modelService;
 
     @Mock
     private ModelRepo modelRepo;
+
+    @Mock
+    private MeterCategoryService categoryService;
 
     @BeforeEach
     void setUp() {
@@ -36,6 +39,7 @@ public class MeterModelServiceTest {
         MeterModelEntity mockModel = new MeterModelEntity("Ares 7021" , (short) 1);
         MeterCategoryEntity mockCategory = new MeterCategoryEntity("Ares TB" , (short) 0);
 
+        when(categoryService.getCategoryIdByCategoryName(mockCategory.getCategoryName())).thenReturn(mockCategory.getId());
         when(modelRepo.findByCategoryId(mockCategory.getId())).thenReturn(Collections.singletonList(mockModel));
 
         List<MeterModelEntity> result = modelService.getModelNameByCategoryName(mockCategory.getCategoryName());
@@ -44,6 +48,5 @@ public class MeterModelServiceTest {
         verify(modelRepo).findByCategoryId(mockCategory.getId());
         verifyNoMoreInteractions(modelRepo);
     }
-
 
 }
