@@ -20,9 +20,16 @@ public class MeterModelEntity implements Serializable {
     @JoinColumn(name = "category_id")
     private MeterCategoryEntity category;
 
-    public MeterModelEntity() {}
+    public MeterModelEntity(String modelName , Short id) {
+        setModelName(modelName);
+        setId(id);
+    }
 
-    MeterModelEntity(MeterCategoryEntity category , String modelName){
+    public MeterModelEntity() {
+
+    }
+
+    public void MeterModelEntity(MeterCategoryEntity category , String modelName){
         this.category = category;
         this.modelName = modelName;
     }

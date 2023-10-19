@@ -24,7 +24,7 @@ package:
     - mvn package
   artifacts:
     name: jarpath
-    paths: 
+    paths:  
       - target\Integration_Project_Backend-1.0-SNAPSHOT.jar
 
 run:
@@ -36,3 +36,4 @@ run:
       - echo "Executando o serviço!"
     only: 
       - master
+
